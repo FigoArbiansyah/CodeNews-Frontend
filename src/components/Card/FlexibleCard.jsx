@@ -25,8 +25,10 @@ const FlexibleCard = ({ index, item, toLeft, style }) => {
         id={index + item?.title ?? 'isID'} 
         className={`flex gap-3 ${toLeft ? 'flex-row-reverse' : 'flex-row'} ${style}`}
     >
-        <div className="md:w-1/3 w-[40%]">
-            <img src={item?.thumbnail} className="w-full aspect-square object-cover rounded" alt={item?.title} />
+        <div className="md:w-1/3 w-[40%] rounded group overflow-hidden">
+            <img 
+            src={item?.thumbnail} className="w-full h-full object-cover group-hover:scale-125 transition-all ease duration-200" 
+            alt={item?.title} />
         </div>
         <div className="md:w-2/3 w-[60%] py-1">
             <div className="flex gap-2 items-center">
@@ -40,8 +42,8 @@ const FlexibleCard = ({ index, item, toLeft, style }) => {
                 {/* BENERIN BESOK YAAAAA */}
                 <p className="md:hidden text-lg font-semibold">
                     {
-                        item?.title.split('').length > 38 ?
-                        `${item?.title.substring(0, 38)}...`
+                        item?.title.split('').length > 55 ?
+                        `${item?.title.substring(0, 55)}...`
                         : item?.title
                     }
                 </p>

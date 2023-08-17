@@ -50,7 +50,7 @@ const ThumbnailSlider = (props) => {
                     </div> */}
                 </div>
             </div>
-            <div className='ms-auto relative md:w-[80%] w-full rounded-xl overflow-hidden'>
+            <div className='ms-auto relative md:w-[80%] w-full h-full rounded-xl overflow-hidden'>
                 <div className='h-36 absolute bottom-0 bg-gradient-to-t from-black to-transparent w-full'></div>
                 <img src="https://images.unsplash.com/photo-1498598457418-36ef20772bb9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" className="w-full h-[90vh] object-cover max-md:aspect-square" />
             </div>
@@ -79,7 +79,7 @@ const ThumbnailSlider = (props) => {
                     </div> */}
                 </div>
             </div>
-            <div className='ms-auto relative md:w-[80%] w-full rounded-xl overflow-hidden'>
+            <div className='ms-auto relative md:w-[80%] w-full h-full rounded-xl overflow-hidden'>
                 <div className='h-36 absolute bottom-0 bg-gradient-to-t from-black to-transparent w-full'></div>
                 <img src="https://images.unsplash.com/photo-1607706189992-eae578626c86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bGFyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" className="w-full h-[90vh] object-cover max-md:aspect-square" />
             </div>
