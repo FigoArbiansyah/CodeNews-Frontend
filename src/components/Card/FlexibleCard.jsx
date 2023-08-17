@@ -1,7 +1,7 @@
 // import React from 'react'
 import PropTypes from 'prop-types'
 
-const FlexibleCard = ({ index, item, toLeft, style }) => {
+const FlexibleCard = ({ index, item, toLeft, style, thumbStyle }) => {
   const getDiffTime = (created_at) => {
     const now = new Date();
     const diffMilliseconds = now - new Date(created_at);
@@ -25,9 +25,9 @@ const FlexibleCard = ({ index, item, toLeft, style }) => {
         id={index + item?.title ?? 'isID'} 
         className={`flex gap-3 ${toLeft ? 'flex-row-reverse' : 'flex-row'} ${style}`}
     >
-        <div className="md:w-1/3 w-[40%] rounded group overflow-hidden">
+        <div className={`md:w-1/3 w-[40%] rounded group overflow-hidden ${thumbStyle}`}>
             <img 
-            src={item?.thumbnail} className="w-full h-full object-cover group-hover:scale-125 transition-all ease duration-200" 
+            src={item?.thumbnail} className="w-full h-full object-cover group-hover:scale-125 transition-all ease duration-200"
             alt={item?.title} />
         </div>
         <div className="md:w-2/3 w-[60%] py-1">
@@ -35,7 +35,7 @@ const FlexibleCard = ({ index, item, toLeft, style }) => {
                 <img src={item?.author_img} className="w-8 aspect-square object-cover rounded-full" alt={item?.author} />
                 <p className="text-lg font-semibold">{item?.author}</p>
                 <p>{'\u2022'}</p>
-                <p className='text-gray-800'>{getDiffTime(item?.created_at)}</p>
+                <p className='text-gray-800 text-sm'>{getDiffTime(item?.created_at)}</p>
             </div>
             <div className="mt-3">
                 {/* leading-[1.4rem] */}
@@ -69,6 +69,7 @@ FlexibleCard.propTypes = {
     item: PropTypes.object.isRequired,
     toLeft: PropTypes.bool.isRequired,
     style: PropTypes.string.isRequired,
+    thumbStyle: PropTypes.string.isRequired,
 }
 
 export default FlexibleCard
