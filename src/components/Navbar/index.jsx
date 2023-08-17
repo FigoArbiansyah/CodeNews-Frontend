@@ -46,11 +46,16 @@ const Navbar = () => {
             </div>
         </nav>
         {visible && (
-            <div className='w-full min-h-full fixed top-0 left-0 bg-black bg-opacity-50 backdrop-blur-lg z-40 grid pt-10 justify-center grid-cols-3'>
+            <div className='w-full min-h-full fixed top-0 left-0 bg-black bg-opacity-50 backdrop-blur-lg z-40 grid pt-10 justify-center md:grid-cols-3'>
                 <div className='max-md:hidden' onClick={() => handleVisible()}></div>
                 <div className='flex justify-center h-auto'>
-                    <div>
-                        <div className="bg-white p-3 rounded-lg w-[25rem] z-50">
+                    <div className='relative'>
+                        <div onClick={() => handleVisible()} className="cursor-pointer close-button bg-white absolute -top-3 -right-3 rounded-full p-1 shadow">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-gray-800">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </div>
+                        <div className="bg-white p-3 rounded-lg md:w-[25rem] w-[18rem] z-50">
                             <input 
                                 type="text" 
                                 className='outline-0 border-b p-2 rounded w-full'
