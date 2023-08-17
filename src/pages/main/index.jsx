@@ -6,6 +6,7 @@ import FlexibleCard from '../../components/Card/FlexibleCard'
 import Navbar from '../../components/Navbar'
 import ThumbnailSlider from '../../components/ThumbnailSlider'
 import dummyArticles from '../../data/articles'
+import SimpleFooter from '../../components/Footer/SimpleFooter'
 
 const index = () => {
   return (
@@ -36,7 +37,7 @@ const index = () => {
             <div className="flex justify-between items-center">
                 <h2 className='text-3xl font-semibold'>Latest News</h2>
                 <div className="flex gap-1 items-center">
-                    <Link to={'/'} className='text-red-600 font-semibold'>See all</Link>
+                    <Link to={'/news'} className='text-red-600 font-semibold'>See all</Link>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-red-500">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                     </svg>
@@ -56,7 +57,7 @@ const index = () => {
             <div className="flex justify-between items-center">
                 <h2 className='text-3xl font-semibold'>Must Read</h2>
                 <div className="flex gap-1 items-center">
-                    <Link to={'/'} className='text-red-600 font-semibold'>See all</Link>
+                    <Link to={'/news'} className='text-red-600 font-semibold'>See all</Link>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-red-500">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                     </svg>
@@ -90,14 +91,14 @@ const index = () => {
             <div className="flex justify-between items-center">
                 <h2 className='text-3xl font-semibold'>Weekly Highlight</h2>
                 <div className="flex gap-1 items-center">
-                    <Link to={'/'} className='text-red-600 font-semibold'>See all</Link>
+                    <Link to={'/news'} className='text-red-600 font-semibold'>See all</Link>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-red-500">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                     </svg>
                 </div>
             </div>
-            <div className="mt-10 grid md:grid-cols-3 gap-4 max-md:gap-y-8">
-                {dummyArticles?.slice(0, 3).map((article, index) => {
+            <div className="mt-10 grid md:grid-cols-4 gap-4 max-md:gap-y-8">
+                {dummyArticles?.slice(0, 4).map((article, index) => {
                     return (
                         <>
                             <Card item={article} index={index} style={''} />
@@ -106,6 +107,9 @@ const index = () => {
                 })}
             </div>
         </section>
+        <br />
+        <br />
+        <SimpleFooter />
     </>
   )
 }

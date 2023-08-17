@@ -23,14 +23,14 @@ const FlexibleCard = ({ index, item, toLeft, style, thumbStyle }) => {
   return (
     <article 
         id={index + item?.title ?? 'isID'} 
-        className={`flex gap-3 ${toLeft ? 'flex-row-reverse' : 'flex-row'} ${style}`}
+        className={`flex gap-3 ${toLeft ? 'flex-row-reverse' : 'flex-row'} ${style} max-md:flex-wrap`}
     >
-        <div className={`md:w-1/3 w-[40%] rounded group overflow-hidden ${thumbStyle}`}>
+        <div className={`md:w-1/3 w-[100%] max-md:h-[10rem] rounded group overflow-hidden ${thumbStyle}`}>
             <img 
             src={item?.thumbnail} className="w-full h-full object-cover group-hover:scale-125 transition-all ease duration-200"
             alt={item?.title} />
         </div>
-        <div className="md:w-2/3 w-[60%] py-1">
+        <div className="md:w-2/3 w-[100%] py-1">
             <div className="flex gap-2 items-center">
                 <img src={item?.author_img} className="w-8 aspect-square object-cover rounded-full" alt={item?.author} />
                 <p className="text-lg font-semibold">{item?.author}</p>

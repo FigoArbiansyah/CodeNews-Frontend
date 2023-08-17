@@ -1,13 +1,25 @@
 // import React from 'react'
 import { Link } from 'react-router-dom'
 import categories from '../../data/categories'
+import { useState } from 'react'
 
 const Navbar = () => {
+  const [visible, setVisible] = useState(false);
+  const handleVisible = (_bool) => {
+    // if (visible) {
+    //     document.body.style.overflowY = 'hidden'
+    // } else {
+    //     document.body.style.overflowY = 'auto'
+    // }
+    setVisible((_prevState) => _bool ?? !_prevState);
+  }
   return (
     <header>
         <nav className="py-3 md:px-10 px-5 bg-black text-white grid grid-cols-12 items-center">
             <div className="col-span-2">
-                <h3 className="text-2xl font-semibold">CodeNews</h3>
+                <h3 className="text-2xl font-semibold">
+                    <Link to={'/'}>CodeNews</Link>
+                </h3>
             </div>
             <div className="col-span-8">
                 <ul className="max-md:hidden w-full text-slate-200 overflow-x-auto grid grid-flow-col auto-cols-max gap-8 ul-category text-[15px]">
@@ -21,7 +33,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="col-span-2 justify-self-end grid grid-cols-2 gap-5">
-                <button className="flex items-center">
+                <button onClick={() => handleVisible()} className="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                     </svg>
@@ -33,6 +45,23 @@ const Navbar = () => {
                 </button>
             </div>
         </nav>
+        {visible && (
+            <div className='w-full min-h-full fixed top-0 left-0 bg-black bg-opacity-50 backdrop-blur-lg z-40 grid pt-10 justify-center grid-cols-3'>
+                <div className='max-md:hidden' onClick={() => handleVisible()}></div>
+                <div className='flex justify-center h-auto'>
+                    <div>
+                        <div className="bg-white p-3 rounded-lg w-[25rem] z-50">
+                            <input 
+                                type="text" 
+                                className='outline-0 border-b p-2 rounded w-full'
+                                placeholder='Cari Berita'
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className='max-md:hidden' onClick={() => handleVisible()}></div>
+            </div>
+        )}
     </header>
   )
 }
